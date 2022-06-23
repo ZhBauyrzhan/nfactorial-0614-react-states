@@ -98,6 +98,12 @@ function App() {
 		setFilterType(type);
 	};
 
+	const handleRemoveToDo = ({ key }) => {
+		setItems((item) =>
+			items.filter((filterItem) => filterItem.key !== key)
+		);
+	};
+
 	const amountDone = items.filter((item) => item.done).length;
 
 	const amountLeft = items.length - amountDone;
@@ -175,6 +181,7 @@ function App() {
 								<button
 									type="button"
 									className="btn btn-outline-danger btn-sm float-right"
+									onClick={() => handleRemoveToDo(item)}
 								>
 									<i className="fa fa-trash-o" />
 								</button>
